@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de Citation Personnalisée</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f7f7f7;
+            padding-top: 50px;
+        }
+        input, button {
+            padding: 10px 15px;
+            font-size: 16px;
+            margin: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #output {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 18px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>Générateur de Citation Personnalisée</h1>
+    <p>Entrez votre nom et laissez-nous générer une citation inspirante pour vous !</p>
+
+    <input type="text" id="nomUtilisateur" placeholder="Entrez votre nom" />
+    <button onclick="genererCitation()">Générer la citation</button>
+
+    <div id="output">La citation apparaîtra ici.</div>
+
+    <script>
+        function genererCitation() {
+            const nom = document.getElementById('nomUtilisateur').value.trim();
+
+            if (nom === "") {
+                document.getElementById('output').innerText = "Veuillez entrer votre nom pour générer la citation.";
+                return;
+            }
+
+            const citations = [
+                `${nom}, la seule limite à notre épanouissement est celle que nous nous imposons.`,
+                `N'oublie jamais, ${nom}, que chaque obstacle est une opportunité déguisée.`,
+                `${nom}, chaque jour est un nouveau départ, un pas de plus vers ton rêve.`,
+                `${nom}, tu as en toi la force de réaliser tout ce que tu désires.`,
+                `${nom}, ne doute jamais de ta capacité à créer des miracles dans ta vie.`,
+                `${nom}, sois le changement que tu veux voir dans le monde.`,
+                `${nom}, la persévérance est la clé de la réussite. Ne lâche rien !`
+            ];
+
+            const indexAleatoire = Math.floor(Math.random() * citations.length);
+            document.getElementById('output').innerText = citations[indexAleatoire];
+        }
+    </script>
+</body>
+</html>
